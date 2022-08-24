@@ -9,6 +9,7 @@ import java.sql.*;
  *
  * @author derekmac
  */
+
 public class Conexion {
     
     private final String url = "jdbc:mysql://localhost:3306/productos";
@@ -16,6 +17,7 @@ public class Conexion {
     private final String pwd = "12345678";
     
     public Conexion(){}
+    
     
     public ResultSet Listar(String Cad){
         try
