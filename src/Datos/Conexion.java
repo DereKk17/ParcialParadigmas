@@ -12,11 +12,12 @@ import java.sql.*;
 
 public class Conexion {
     
-    private final String url = "jdbc:mysql://localhost:3306/productos";
+    private final String url = "jdbc:mysql://localhost:3306/carros";
     private final String user = "root";
     private final String pwd = "12345678";
     
     public Conexion(){}
+    
     
     
     public ResultSet Listar(String Cad){

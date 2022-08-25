@@ -43,12 +43,16 @@ public class Vista_Articulo extends javax.swing.JFrame {
         
         for(DataArticulo x: list2)
         {
-            tabla.setValueAt(x.getArt_cod(), i, 0);
-            tabla.setValueAt(x.getArt_nom(), i, 1);
-            tabla.setValueAt(x.getArt_uni(), i, 2);
-            tabla.setValueAt(x.getArt_pre(), i, 3);
-            tabla.setValueAt(x.getArt_stk(), i, 4);
-            tabla.setValueAt(x.getArt_marca(), i, 5);
+            tabla.setValueAt(x.getPlaca(), i, 0);
+            tabla.setValueAt(x.getModelo(), i, 1);
+            tabla.setValueAt(x.getCapacidad(), i, 2);
+            tabla.setValueAt(x.getBahul(), i, 3);
+            tabla.setValueAt(x.getMotor(), i, 4);
+            tabla.setValueAt(x.gettPrestamo(), i, 5);
+            tabla.setValueAt(x.getfPrestamo(), i, 6);
+            tabla.setValueAt(x.getfEntrega(), i, 7);
+            tabla.setValueAt(x.getPrePrestamo(), i, 8);
+            tabla.setValueAt(x.getEstado(), i, 9);
             i++;
         }
         this.jTable1.setModel(tabla);
@@ -322,7 +326,7 @@ public class Vista_Articulo extends javax.swing.JFrame {
         if (msj == 0)
         {
             DataArticulo objart = new DataArticulo();
-            objart.setArt_cod(this.tfCodigo.getText());
+            objart.setPlaca(this.tfCodigo.getText());
             JOptionPane.showMessageDialog(null, objart.EliminarArticulo());
             ListarArticulos();
             JOptionPane.showMessageDialog(null, "Producto Eliminado");
@@ -331,24 +335,24 @@ public class Vista_Articulo extends javax.swing.JFrame {
 
     private void btModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btModificarActionPerformed
         DataArticulo objart = new DataArticulo();
-        objart.setArt_cod(this.tfCodigo.getText());
-        objart.setArt_nom(this.tfNombre.getText());
-        objart.setArt_uni(this.tfUnidad.getText());
+        objart.setPlaca(this.tfCodigo.getText());
+        objart.setModelo(this.tfNombre.getText());
+        objart.setBahul(this.tfUnidad.getText());
         objart.setArt_pre(Float.parseFloat(this.tfPrecio.getText()));
-        objart.setArt_stk(Integer.parseInt(this.tfCantidad.getText()));
-        objart.setArt_marca(this.tfMarca.getText());
+        objart.setCapacidad(Integer.parseInt(this.tfCantidad.getText()));
+        objart.setMotor(this.tfMarca.getText());
         JOptionPane.showMessageDialog(null, objart.EditarArticulo());
         ListarArticulos();
     }//GEN-LAST:event_btModificarActionPerformed
 
     private void btGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btGuardarActionPerformed
         DataArticulo objart = new DataArticulo();
-        objart.setArt_cod(this.tfCodigo.getText());
-        objart.setArt_nom(this.tfNombre.getText());
-        objart.setArt_uni(this.tfUnidad.getText());
+        objart.setPlaca(this.tfCodigo.getText());
+        objart.setModelo(this.tfNombre.getText());
+        objart.setBahul(this.tfUnidad.getText());
         objart.setArt_pre(Float.parseFloat(this.tfPrecio.getText()));
-        objart.setArt_stk(Integer.parseInt(this.tfCantidad.getText()));
-        objart.setArt_marca(this.tfMarca.getText());
+        objart.setCapacidad(Integer.parseInt(this.tfCantidad.getText()));
+        objart.setMotor(this.tfMarca.getText());
         JOptionPane.showMessageDialog(null, objart.GuardarArticulo());
         ListarArticulos();
     }//GEN-LAST:event_btGuardarActionPerformed

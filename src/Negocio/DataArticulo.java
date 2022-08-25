@@ -8,32 +8,39 @@ import Datos.Conexion;
 import java.util.ArrayList;
 
 public class DataArticulo {
-    private String art_cod;
-    private String art_nom;
-    private String art_uni;
-    private float art_pre;
-    private int art_stk;
-    private String art_marca;
+    private String placa;
+    private String modelo;
+    private String bahul;
+    private int capacidad;
+    private String motor;
+    private int prePrestamo;
+    private int tPrestamo;
+    private String fPrestamo;
+    private String fEntrega;
+    private String estado;
     
     
     public String EliminarArticulo(){
         Conexion objmod = new Conexion();
-        String cad = "delete from articulos where art_cod='" + this.getArt_cod() + "'";
+        String cad = "delete from articulos where art_cod='" + this.getPlaca() + "'";
         return objmod.Ejecutar(cad);
     }
     
     public String GuardarArticulo(){
         Conexion objmod = new Conexion();
-        String cad = "insert into articulos values('" + this.getArt_cod() + "','" + this.getArt_nom()+ "','" + this.getArt_uni() + "'," + this.getArt_pre() + "," + this.getArt_stk() + ",'" + this.getArt_marca() + "')";
+        String cad = "insert into articulos values('" + this.getPlaca() + "','" + this.getModelo()+ "','" + "," + this.getCapacidad() + "," +  this.getBahul() + "'," + this.getMotor() + "," + this.gettPrestamo()+ ",'"+ this.getfPrestamo() + "','" + this.getfEntrega() + "'," + this.getPrePrestamo() + ",'" + this.getEstado() + "')";
         return objmod.Ejecutar(cad);
     }
     
     public String EditarArticulo(){
         Conexion objmod = new Conexion();
-        String cad = "update articulos set art_nom='" + this.getArt_nom()
-                + "', art_uni='" + this.getArt_uni() + "', art_pre='" + this.getArt_pre()
-                + "', art_stk=" + this.getArt_stk() + ", art_marca='" + this.getArt_marca() 
-                + "' where art_cod='" + this.getArt_cod() + "'";
+        String cad = "update articulos set placa='" + this.getPlaca()
+                + "', bahul='" + this.getBahul() + "', modelo='" + this.getModelo()
+                + "', capacidad=" + this.getCapacidad() + ", motor='" + this.getMotor() 
+                + "', tPrestamo=" + this.gettPrestamo() + ", fPrestamo='" + this.getfPrestamo()
+                + "', fPrestamo='" + this.getfPrestamo() + "', prePrestamo=" + this.getPrePrestamo()
+                + "', estado='" + this.getEstado() 
+                + "' where placa='" + this.getPlaca() + "'";
         return objmod.Ejecutar(cad);
     }
     
@@ -51,12 +58,16 @@ public class DataArticulo {
             while(tabla.next())
             {
                 objart = new DataArticulo();
-                objart.setArt_cod(tabla.getString("art_cod"));
-                objart.setArt_nom(tabla.getString("art_nom"));
-                objart.setArt_uni(tabla.getString("art_uni"));
-                objart.setArt_pre(tabla.getFloat("art_pre"));
-                objart.setArt_stk(tabla.getInt("art_stk"));
-                objart.setArt_marca(tabla.getString("art_marca"));
+                objart.setPlaca(tabla.getString("placa"));
+                objart.setModelo(tabla.getString("modelo"));
+                objart.setBahul(tabla.getString("bahul"));
+                objart.setMotor(tabla.getString("motor"));
+                objart.setCapacidad(tabla.getInt("capacidad"));
+                objart.settPrestamo(tabla.getInt("tPrestamo"));
+                objart.setfPrestamo(tabla.getString("fPrestamo"));
+                objart.setfEntrega(tabla.getString("fEntrega"));
+                objart.setPrePrestamo(tabla.getInt("prePrestamo"));
+                objart.setEstado(tabla.getString("estado"));
                 list2.add(objart);
             }
         }
@@ -70,53 +81,88 @@ public class DataArticulo {
 
     
 
-    public String getArt_cod() {
-        return art_cod;
+    public String getPlaca() {
+        return placa;
     }
 
-    public void setArt_cod(String art_cod) {
-        this.art_cod = art_cod;
+    public void setPlaca(String placa) {
+        this.placa = placa;
     }
 
-    public String getArt_nom() {
-        return art_nom;
+    public String getModelo() {
+        return modelo;
     }
 
-    public void setArt_nom(String art_nom) {
-        this.art_nom = art_nom;
+    public void setModelo(String modelo) {
+        this.modelo = modelo;
     }
 
-    public String getArt_uni() {
-        return art_uni;
+    public String getBahul() {
+        return bahul;
     }
 
-    public void setArt_uni(String art_uni) {
-        this.art_uni = art_uni;
+    public void setBahul(String bahul) {
+        this.bahul = bahul;
     }
 
-    public float getArt_pre() {
-        return art_pre;
+ 
+
+    public int getCapacidad() {
+        return capacidad;
     }
 
-    public void setArt_pre(float art_pre) {
-        this.art_pre = art_pre;
+    public void setCapacidad(int capacidad) {
+        this.capacidad = capacidad;
     }
 
-    public int getArt_stk() {
-        return art_stk;
+    public String getMotor() {
+        return motor;
     }
 
-    public void setArt_stk(int art_stk) {
-        this.art_stk = art_stk;
+    public void setMotor(String motor) {
+        this.motor = motor;
     }
 
-    public String getArt_marca() {
-        return art_marca;
+    public int getPrePrestamo() {
+        return prePrestamo;
     }
 
-    public void setArt_marca(String art_marca) {
-        this.art_marca = art_marca;
+    public void setPrePrestamo(int prePrestamo) {
+        this.prePrestamo = prePrestamo;
     }
+
+    public int gettPrestamo() {
+        return tPrestamo;
+    }
+
+    public void settPrestamo(int tPrestamo) {
+        this.tPrestamo = tPrestamo;
+    }
+
+    public String getfPrestamo() {
+        return fPrestamo;
+    }
+
+    public void setfPrestamo(String fPrestamo) {
+        this.fPrestamo = fPrestamo;
+    }
+
+    public String getfEntrega() {
+        return fEntrega;
+    }
+
+    public void setfEntrega(String fEntrega) {
+        this.fEntrega = fEntrega;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+    
     
     
     
