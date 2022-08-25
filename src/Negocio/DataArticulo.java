@@ -17,30 +17,50 @@ public class DataArticulo {
     private int tPrestamo;
     private String fPrestamo;
     private String fEntrega;
-    private String estado;
+    private boolean estado;
     
     
     public String EliminarArticulo(){
         Conexion objmod = new Conexion();
-        String cad = "delete from articulos where art_cod='" + this.getPlaca() + "'";
+        String cad = "delete from carros where placa='" + this.getPlaca() + "'";
         return objmod.Ejecutar(cad);
     }
     
     public String GuardarArticulo(){
         Conexion objmod = new Conexion();
-        String cad = "insert into articulos values('" + this.getPlaca() + "','" + this.getModelo()+ "','" + "," + this.getCapacidad() + "," +  this.getBahul() + "'," + this.getMotor() + "," + this.gettPrestamo()+ ",'"+ this.getfPrestamo() + "','" + this.getfEntrega() + "'," + this.getPrePrestamo() + ",'" + this.getEstado() + "')";
+        String cad = "insert into carros values('" + this.getPlaca() + "','" + this.getModelo()+ "','" + "," + this.getCapacidad() + "," +  this.getBahul() + "'," + this.getMotor() + "," + this.gettPrestamo()+ ",'"+ this.getfPrestamo() + "','" + this.getfEntrega() + "'," + this.getPrePrestamo() + ",'" + this.getEstado() + "')";
         return objmod.Ejecutar(cad);
     }
     
     public String EditarArticulo(){
         Conexion objmod = new Conexion();
-        String cad = "update articulos set placa='" + this.getPlaca()
+        String cad = "update carros set placa='" + this.getPlaca()
                 + "', bahul='" + this.getBahul() + "', modelo='" + this.getModelo()
                 + "', capacidad=" + this.getCapacidad() + ", motor='" + this.getMotor() 
                 + "', tPrestamo=" + this.gettPrestamo() + ", fPrestamo='" + this.getfPrestamo()
                 + "', fPrestamo='" + this.getfPrestamo() + "', prePrestamo=" + this.getPrePrestamo()
                 + "', estado='" + this.getEstado() 
                 + "' where placa='" + this.getPlaca() + "'";
+        return objmod.Ejecutar(cad);
+    }
+    
+    
+    public String AlquilarArticulo(){
+        Conexion objmod = new Conexion();
+        String cad = "update carros set estado = 1 where placa='" + this.getPlaca() + "'";
+        return objmod.Ejecutar(cad);
+        
+    }
+    
+    public String asignarFechaPrestamo(){
+        Conexion objmod = new Conexion();
+        String cad = "update carros set fPrestamo = curdate() where placa='" + this.getPlaca() + "'";
+        return objmod.Ejecutar(cad);
+    }
+    
+    public String asignarFechaEntrega(){
+       Conexion objmod = new Conexion();
+        String cad = "update carros set fEntrega = date_add(curdate(), interval" + this.gettPrestamo() + "day) where placa='" + this.getPlaca() + "'";
         return objmod.Ejecutar(cad);
     }
     

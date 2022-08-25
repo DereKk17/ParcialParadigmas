@@ -32,12 +32,16 @@ public class Vista_Articulo extends javax.swing.JFrame {
         DataArticulo objart = new DataArticulo();
         ArrayList<DataArticulo> list2 = new ArrayList();
         list2 = objart.ListArticulos();
-        tabla.addColumn("Codigo");
-        tabla.addColumn("Nombre");
-        tabla.addColumn("Unidad");
-        tabla.addColumn("Precio");
-        tabla.addColumn("Stock");
-        tabla.addColumn("Marca");
+        tabla.addColumn("Placa");
+        tabla.addColumn("Modelo");
+        tabla.addColumn("Capacidad");
+        tabla.addColumn("Bahul");
+        tabla.addColumn("Motor");
+        tabla.addColumn("Tiempo de Prestamo");
+        tabla.addColumn("Fecha de Prestamo");
+        tabla.addColumn("Fecha de Entrega");
+        tabla.addColumn("Precio de Prestamo");
+        tabla.addColumn("Disponibilidad");
         tabla .setRowCount(list2.size());
         int i = 0;
         
@@ -60,13 +64,16 @@ public class Vista_Articulo extends javax.swing.JFrame {
     
     public void LimpiarTexto()
     {
-        this.tfCantidad.setText("");
-        this.tfUnidad.setText("");
-        this.tfCodigo.setText("");
-        this.tfPrecio.setText("");
-        this.tfMarca.setText("");
-        this.tfNombre.setText("");
+        this.tfPlaca.setText("");
+        this.tfModelo.setText("");
+        this.tfCapacidad.setText("");
+        this.tfBahul.setText("");
+        this.tfMotor.setText("");
+        this.tfTprestamo.setText("");
+        this.prePrestamo.setText("");
         
+        
+         
         
     }
     
@@ -312,21 +319,23 @@ public class Vista_Articulo extends javax.swing.JFrame {
 
     private void jTable1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MousePressed
         int grab = this.jTable1.getSelectedRow();
-        this.tfCodigo.setText(jTable1.getValueAt(grab, 0).toString());
-        this.tfNombre.setText(jTable1.getValueAt(grab, 1).toString());
-        this.tfUnidad.setText(jTable1.getValueAt(grab, 2).toString());
-        this.tfPrecio.setText(jTable1.getValueAt(grab, 3).toString());
-        this.tfCantidad.setText(jTable1.getValueAt(grab, 4).toString());
-        this.tfMarca.setText(jTable1.getValueAt(grab, 5).toString());
+        this.tfPlaca.setText(jTable1.getValueAt(grab, 0).toString());
+        this.tfModelo.setText(jTable1.getValueAt(grab, 1).toString());
+        this.tfCapacidad.setText(jTable1.getValueAt(grab, 2).toString());
+        this.tfBahul.setText(jTable1.getValueAt(grab, 3).toString());
+        this.tfMotor.setText(jTable1.getValueAt(grab, 4).toString());
+        this.tfTprestamo.setText(jTable1.getValueAt(grab, 5).toString());
+        this.tfPrePrestamo.setText(jTable1.getValueAt(grab, 8).toString());
+        
         
     }//GEN-LAST:event_jTable1MousePressed
 
     private void btEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEliminarActionPerformed
-        int msj = JOptionPane.showConfirmDialog(null, "Seguro que quiere Eliminar el producto: " + this.tfCodigo.getText());
+        int msj = JOptionPane.showConfirmDialog(null, "Seguro que quiere Eliminar el producto: " + this.tfPlaca.getText());
         if (msj == 0)
         {
             DataArticulo objart = new DataArticulo();
-            objart.setPlaca(this.tfCodigo.getText());
+            objart.setPlaca(this.tfPlaca.getText());
             JOptionPane.showMessageDialog(null, objart.EliminarArticulo());
             ListarArticulos();
             JOptionPane.showMessageDialog(null, "Producto Eliminado");
@@ -335,24 +344,29 @@ public class Vista_Articulo extends javax.swing.JFrame {
 
     private void btModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btModificarActionPerformed
         DataArticulo objart = new DataArticulo();
-        objart.setPlaca(this.tfCodigo.getText());
-        objart.setModelo(this.tfNombre.getText());
-        objart.setBahul(this.tfUnidad.getText());
-        objart.setArt_pre(Float.parseFloat(this.tfPrecio.getText()));
-        objart.setCapacidad(Integer.parseInt(this.tfCantidad.getText()));
-        objart.setMotor(this.tfMarca.getText());
+        objart.setPlaca(this.tfPlaca.getText());
+        objart.setModelo(this.tfModelo.getText());
+        objart.setBahul(this.tfBahul.getText());
+        objart.setPrePrestamo(Integer.parseInt(this.tfPrePrestamo.getText()));
+        objart.setCapacidad(Integer.parseInt(this.tfCapacidad.getText()));
+        objart.setMotor(this.tfMotor.getText());
+        objart.settPrestamo(Integer.parseInt(this.tfTprestamo.getText()));
         JOptionPane.showMessageDialog(null, objart.EditarArticulo());
         ListarArticulos();
     }//GEN-LAST:event_btModificarActionPerformed
 
     private void btGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btGuardarActionPerformed
         DataArticulo objart = new DataArticulo();
-        objart.setPlaca(this.tfCodigo.getText());
-        objart.setModelo(this.tfNombre.getText());
-        objart.setBahul(this.tfUnidad.getText());
-        objart.setArt_pre(Float.parseFloat(this.tfPrecio.getText()));
-        objart.setCapacidad(Integer.parseInt(this.tfCantidad.getText()));
-        objart.setMotor(this.tfMarca.getText());
+        objart.setPlaca(this.tfPlaca.getText());
+        objart.setModelo(this.tfModelo.getText());
+        objart.setBahul(this.tfBahul.getText());
+        objart.setPrePrestamo(Integer.parseInt(this.tfPrePrestamo.getText()));
+        objart.setCapacidad(Integer.parseInt(this.tfCapacidad.getText()));
+        objart.setMotor(this.tfMotor.getText());
+        objart.settPrestamo(Integer.parseInt(this.tfTprestamo.getText()));
+        objart.setfPrestamo("NA");
+        objart.setfEntrega("NA");
+        objart.setEstado(Boolean.parseBoolean(0));
         JOptionPane.showMessageDialog(null, objart.GuardarArticulo());
         ListarArticulos();
     }//GEN-LAST:event_btGuardarActionPerformed
