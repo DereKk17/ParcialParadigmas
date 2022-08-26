@@ -4,10 +4,8 @@
  */
 package Vista;
 
-import Negocio.DataArticulo;
-import java.util.ArrayList;
 import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
+
 
 /**
  *
@@ -15,67 +13,14 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Vista_Articulo extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Vista_Articulo
-     */
+    
     public Vista_Articulo() {
         initComponents();
-        this.setSize(1200,600);
-        ListarArticulos();
-        btGuardar.setEnabled(false);
+        this.setSize(1500,600);
+       
     }
 
     
-    public void ListarArticulos()
-    {
-        DefaultTableModel tabla = new DefaultTableModel();
-        DataArticulo objart = new DataArticulo();
-        ArrayList<DataArticulo> list2 = new ArrayList();
-        list2 = objart.ListArticulos();
-        tabla.addColumn("Placa");
-        tabla.addColumn("Modelo");
-        tabla.addColumn("Capacidad");
-        tabla.addColumn("Bahul");
-        tabla.addColumn("Motor");
-        tabla.addColumn("Tiempo de Prestamo");
-        tabla.addColumn("Fecha de Prestamo");
-        tabla.addColumn("Fecha de Entrega");
-        tabla.addColumn("Precio de Prestamo");
-        tabla.addColumn("Disponibilidad");
-        tabla .setRowCount(list2.size());
-        int i = 0;
-        
-        for(DataArticulo x: list2)
-        {
-            tabla.setValueAt(x.getPlaca(), i, 0);
-            tabla.setValueAt(x.getModelo(), i, 1);
-            tabla.setValueAt(x.getCapacidad(), i, 2);
-            tabla.setValueAt(x.getBahul(), i, 3);
-            tabla.setValueAt(x.getMotor(), i, 4);
-            tabla.setValueAt(x.gettPrestamo(), i, 5);
-            tabla.setValueAt(x.getfPrestamo(), i, 6);
-            tabla.setValueAt(x.getfEntrega(), i, 7);
-            tabla.setValueAt(x.getPrePrestamo(), i, 8);
-            tabla.setValueAt(x.getEstado(), i, 9);
-            i++;
-        }
-        this.jTable1.setModel(tabla);
-    }
-    
-    public void LimpiarTexto()
-    {
-        this.tfPlaca.setText("");
-        this.tfModelo.setText("");
-        this.tfCapacidad.setText("");
-        this.tfBahul.setText("");
-        this.tfMotor.setText("");
-        this.tfTprestamo.setText("");
-        this.prePrestamo.setText("");
-        
-        
-         
-        
-    }
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -101,9 +46,7 @@ public class Vista_Articulo extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -149,7 +92,7 @@ public class Vista_Articulo extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, 260, 70));
+        jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 340, 260, 70));
 
         jPanel5.setBackground(new java.awt.Color(89, 166, 194));
 
@@ -186,7 +129,7 @@ public class Vista_Articulo extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel2.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 260, 70));
+        jPanel2.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 80, 260, 70));
 
         jPanel6.setBackground(new java.awt.Color(89, 166, 194));
 
@@ -205,24 +148,24 @@ public class Vista_Articulo extends javax.swing.JFrame {
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
+                .addGap(20, 20, 20)
                 .addComponent(jLabel14)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jButton3)
-                .addContainerGap(70, Short.MAX_VALUE))
+                .addContainerGap(58, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 2, Short.MAX_VALUE))
-            .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addComponent(jButton3)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel2.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 260, 70));
+        jPanel2.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 210, 260, 70));
 
         jPanel8.setBackground(new java.awt.Color(89, 166, 194));
 
@@ -230,6 +173,11 @@ public class Vista_Articulo extends javax.swing.JFrame {
 
         jButton1.setBackground(new java.awt.Color(89, 166, 194));
         jButton1.setText("SALIR");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -254,40 +202,22 @@ public class Vista_Articulo extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel2.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 420, 260, 70));
+        jPanel2.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 470, 260, 70));
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Images/WhatsApp Image 2022-08-25 at 8.12.34 PM.jpeg"))); // NOI18N
-        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, -1, -1));
+        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 240, -1, -1));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 260, 536));
-
-        jPanel3.setBackground(new java.awt.Color(154, 196, 196));
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 864, Short.MAX_VALUE)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 165, Short.MAX_VALUE)
-        );
-
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 190, -1, -1));
-
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Images/carro-dos.jpg"))); // NOI18N
-        jLabel7.setText("jLabel7");
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 600));
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 737, Short.MAX_VALUE)
+            .addGap(0, 660, Short.MAX_VALUE)
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 220, Short.MAX_VALUE)
+            .addGap(0, 190, Short.MAX_VALUE)
         );
 
         jPanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 0, 660, 190));
@@ -315,16 +245,24 @@ public class Vista_Articulo extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         Trabajador a= new Trabajador();
-        a.setvisible(true);
+        a.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         Cliente a= new Cliente();
-        a.setvisible(true);
+        a.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        int r = JOptionPane.showConfirmDialog(null, "Seguro?");
+        if(r == 0)
+        {
+            System.exit(0);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -371,10 +309,8 @@ public class Vista_Articulo extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
@@ -382,17 +318,8 @@ public class Vista_Articulo extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel8;
     // End of variables declaration//GEN-END:variables
 
-    void setvisible(boolean b) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
 
-    void setvisible(boolean b) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
 
-    void setvisible(boolean b) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
 
     
 }

@@ -57,7 +57,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="0" y="0" width="260" height="536"/>
+              <AbsoluteConstraints x="0" y="0" width="260" height="610"/>
             </Constraint>
           </Constraints>
 
@@ -273,7 +273,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="260" y="190" width="-1" height="-1"/>
+              <AbsoluteConstraints x="260" y="170" width="1240" height="180"/>
             </Constraint>
           </Constraints>
 
@@ -282,65 +282,58 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
-                              <Component id="tfCapacidad" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="85" max="-2" attributes="0"/>
-                              <Component id="tfBahul" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="tfTprestamo" min="-2" max="-2" attributes="0"/>
-                              </Group>
                               <Group type="102" alignment="1" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabel10" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel9" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="tfMotor" max="32767" attributes="0"/>
-                                      <Component id="tfPlaca" max="32767" attributes="0"/>
+                                      <Component id="tfPlaca" min="-2" pref="150" max="-2" attributes="0"/>
+                                      <Component id="tfMotor" min="-2" pref="150" max="-2" attributes="0"/>
+                                      <Component id="tfCapacidad" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jLabel13" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel12" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="tfBahul" min="-2" pref="151" max="-2" attributes="0"/>
+                                      <Component id="tfTprestamo" min="-2" pref="150" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
+                          <Component id="jLabel11" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="287" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="tfModelo" pref="135" max="32767" attributes="0"/>
+                          <Component id="tfprePrestamo" max="32767" attributes="0"/>
                       </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
-                                      <Component id="tfModelo" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="tfprePrestamo" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <EmptySpace pref="119" max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="btEliminar" min="-2" max="-2" attributes="0"/>
-                                  <Component id="btGuardar" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                          <Group type="102" attributes="0">
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="btGuardar" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="146" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace max="32767" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="192" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="btNuevo" min="-2" max="-2" attributes="0"/>
                                   <Component id="btModificar" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btNuevo" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btEliminar" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="138" max="-2" attributes="0"/>
+                              <EmptySpace pref="138" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -357,32 +350,41 @@
                           <Component id="jLabel15" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="tfModelo" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="tfMotor" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btEliminar" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="tfMotor" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="tfCapacidad" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="tfBahul" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="tfTprestamo" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="tfprePrestamo" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="btEliminar" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="btModificar" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="btNuevo" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="tfCapacidad" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btModificar" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="tfBahul" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btNuevo" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="tfTprestamo" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="tfprePrestamo" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace pref="9" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -433,21 +435,33 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Guardar"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btGuardarActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btEliminar">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Eliminar"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btEliminarActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btModificar">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Modificar"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btModificarActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btNuevo">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Nuevo"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btNuevoActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel1">
               <Properties>
@@ -475,7 +489,10 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jLabel7" alignment="0" pref="737" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="jLabel7" min="-2" pref="1243" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
@@ -501,7 +518,7 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="260" y="340" width="640" height="190"/>
+              <AbsoluteConstraints x="260" y="360" width="1240" height="250"/>
             </Constraint>
           </Constraints>
 
@@ -518,6 +535,9 @@
                   </Table>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jTable1MousePressed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

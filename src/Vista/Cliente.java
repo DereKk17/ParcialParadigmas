@@ -5,6 +5,9 @@
 package Vista;
 
 import Negocio.DataArticulo;
+import static java.lang.String.valueOf;
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -15,12 +18,10 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Cliente extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Vista_Articulo
-     */
+   
     public Cliente() {
         initComponents();
-        this.setSize(1200,600);
+        this.setSize(1500,600);
         ListarArticulos();
         
     }
@@ -217,7 +218,7 @@ public class Cliente extends javax.swing.JFrame {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Images/WhatsApp Image 2022-08-25 at 8.12.34 PM.jpeg"))); // NOI18N
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, -1, -1));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 260, 536));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 260, 600));
 
         jPanel3.setBackground(new java.awt.Color(154, 196, 196));
 
@@ -246,24 +247,24 @@ public class Cliente extends javax.swing.JFrame {
                         .addComponent(jLabel9))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(28, 28, 28)
-                        .addComponent(btAlquilar)
-                        .addGap(49, 49, 49)
-                        .addComponent(btCancelar)))
-                .addContainerGap(434, Short.MAX_VALUE))
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btAlquilar, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btCancelar))))
+                .addContainerGap(1131, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel9)
-                .addGap(51, 51, 51)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btAlquilar)
-                    .addComponent(btCancelar))
-                .addContainerGap(70, Short.MAX_VALUE))
+                .addGap(20, 20, 20)
+                .addComponent(btAlquilar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addComponent(btCancelar)
+                .addGap(29, 29, 29))
         );
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 190, -1, -1));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 190, 1240, 140));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Images/carro-dos.jpg"))); // NOI18N
         jLabel7.setText("jLabel7");
@@ -272,7 +273,9 @@ public class Cliente extends javax.swing.JFrame {
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 737, Short.MAX_VALUE)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addComponent(jLabel7)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -292,9 +295,14 @@ public class Cliente extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jTable1MousePressed(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 340, 640, 190));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 340, 1240, 260));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -313,66 +321,61 @@ public class Cliente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btAlquilarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAlquilarActionPerformed
-        // TODO add your handling code here:
+        int msj = JOptionPane.showConfirmDialog(null, "Seguro que quiere alquilar el carro? ");
+        if (msj == 0)
+        {
+            LocalDate fecha = LocalDate.now();
+            DataArticulo objart = new DataArticulo();
+            objart.setEstado(false);
+            objart.setfPrestamo(valueOf(fecha));
+            objart.setfEntrega(valueOf(fecha.plus(Period.ofDays(objart.gettPrestamo()))));
+            JOptionPane.showMessageDialog(null, objart.AlquilarArticulo());
+            JOptionPane.showMessageDialog(null, objart.asignarFechaPrestamo());
+            JOptionPane.showMessageDialog(null, objart.asignarFechaPrestamo());
+            ListarArticulos();
+            JOptionPane.showMessageDialog(null, "Carro alquilado");
+        }
     }//GEN-LAST:event_btAlquilarActionPerformed
 
     private void btCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelarActionPerformed
-        // TODO add your handling code here:
+        int msj = JOptionPane.showConfirmDialog(null, "Seguro que quiere cancelar el alquiler? ");
+        if (msj == 0)
+        {
+            DataArticulo objart = new DataArticulo();
+            objart.setEstado(true);
+            JOptionPane.showMessageDialog(null, objart.cancelarArticulo());
+            ListarArticulos();
+            JOptionPane.showMessageDialog(null, "alquiler cancelado");
+        }
     }//GEN-LAST:event_btCancelarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         Vista_Articulo a= new Vista_Articulo();
-        a.setvisible(true);
+        a.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         Cliente a= new Cliente();
-        a.setvisible(true);
+        a.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
+        int r = JOptionPane.showConfirmDialog(null, "Seguro?");
+        if(r == 0)
+        {
+            System.exit(0);
+        }
     }//GEN-LAST:event_jButton5ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Cliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Cliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Cliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Cliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
+    private void jTable1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTable1MousePressed
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Cliente().setVisible(true);
-            }
-        });
-    }
+   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btAlquilar;
@@ -397,13 +400,8 @@ public class Cliente extends javax.swing.JFrame {
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 
-    void setvisible(boolean b) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+   
 
-    void setvisible(boolean b) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
 
     
 }

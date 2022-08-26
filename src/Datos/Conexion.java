@@ -12,7 +12,7 @@ import java.sql.*;
 
 public class Conexion {
     
-    private final String url = "jdbc:mysql://localhost:3306/carros";
+    private final String url = "jdbc:mysql://localhost:3306/carrosAlquiler";
     private final String user = "root";
     private final String pwd = "12345678";
     

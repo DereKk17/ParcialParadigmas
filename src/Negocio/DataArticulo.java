@@ -26,30 +26,38 @@ public class DataArticulo {
         return objmod.Ejecutar(cad);
     }
     
-    public String GuardarArticulo(){
+    
+     public String GuardarArticulo(){
         Conexion objmod = new Conexion();
-        String cad = "insert into carros values('" + this.getPlaca() + "','" + this.getModelo()+ "','" + "," + this.getCapacidad() + "," +  this.getBahul() + "'," + this.getMotor() + "," + this.gettPrestamo()+ ",'"+ this.getfPrestamo() + "','" + this.getfEntrega() + "'," + this.getPrePrestamo() + ",'" + this.getEstado() + "')";
+        String cad = "insert into carros(placa, modelo, capacidad, bahul, motor, tPrestamo, prePrestamo, estado) values ('"
+                + this.getPlaca() + "','" + this.getModelo() + "'," + this.getCapacidad() + ",'" + this.getBahul() + "','" + this.getMotor() + "'," + this.gettPrestamo() + "," + this.getPrePrestamo() + ",1)" ;
         return objmod.Ejecutar(cad);
     }
     
     public String EditarArticulo(){
         Conexion objmod = new Conexion();
-        String cad = "update carros set placa='" + this.getPlaca()
-                + "', bahul='" + this.getBahul() + "', modelo='" + this.getModelo()
+        String cad = "update carros set bahul='" + this.getBahul()
+                + "', modelo='" + this.getModelo()
                 + "', capacidad=" + this.getCapacidad() + ", motor='" + this.getMotor() 
-                + "', tPrestamo=" + this.gettPrestamo() + ", fPrestamo='" + this.getfPrestamo()
-                + "', fPrestamo='" + this.getfPrestamo() + "', prePrestamo=" + this.getPrePrestamo()
-                + "', estado='" + this.getEstado() 
-                + "' where placa='" + this.getPlaca() + "'";
+                + "', tPrestamo=" + this.gettPrestamo() 
+                + ", prePrestamo=" + this.getPrePrestamo()
+                + " where placa='" + this.getPlaca() + "'";
         return objmod.Ejecutar(cad);
     }
     
     
+    
     public String AlquilarArticulo(){
         Conexion objmod = new Conexion();
-        String cad = "update carros set estado = 1 where placa='" + this.getPlaca() + "'";
+        String cad = "update carros set estado = 0  where placa='" + this.getPlaca() + "'";
         return objmod.Ejecutar(cad);
         
+    }
+    
+    public String cancelarArticulo(){
+        Conexion objmod = new Conexion();
+         String cad = "update carros set estado = 1, fPrestamo = null, fEntrega = null where placa = '" + this.getPlaca() + "'";
+        return objmod.Ejecutar(cad);
     }
     
     public String asignarFechaPrestamo(){
@@ -73,7 +81,7 @@ public class DataArticulo {
         try
         {
             Conexion objmod = new Conexion();
-            ResultSet tabla = objmod.Listar("select * from articulos");
+            ResultSet tabla = objmod.Listar("select * from carros");
             DataArticulo objart;
             while(tabla.next())
             {
@@ -87,7 +95,7 @@ public class DataArticulo {
                 objart.setfPrestamo(tabla.getString("fPrestamo"));
                 objart.setfEntrega(tabla.getString("fEntrega"));
                 objart.setPrePrestamo(tabla.getInt("prePrestamo"));
-                objart.setEstado(tabla.getString("estado"));
+                objart.setEstado(tabla.getBoolean("estado"));
                 list2.add(objart);
             }
         }
@@ -175,11 +183,11 @@ public class DataArticulo {
         this.fEntrega = fEntrega;
     }
 
-    public String getEstado() {
+    public boolean getEstado() {
         return estado;
     }
 
-    public void setEstado(String estado) {
+    public void setEstado(boolean estado) {
         this.estado = estado;
     }
     
