@@ -22,7 +22,7 @@ public class Cliente extends javax.swing.JFrame {
         initComponents();
         this.setSize(1200,600);
         ListarArticulos();
-        btGuardar.setEnabled(false);
+        
     }
 
     
@@ -62,20 +62,7 @@ public class Cliente extends javax.swing.JFrame {
         this.jTable1.setModel(tabla);
     }
     
-    public void LimpiarTexto()
-    {
-        this.tfPlaca.setText("");
-        this.tfModelo.setText("");
-        this.tfCapacidad.setText("");
-        this.tfBahul.setText("");
-        this.tfMotor.setText("");
-        this.tfTprestamo.setText("");
-        this.prePrestamo.setText("");
-        
-        
-         
-        
-    }
+   
     
     /**
      * This method is called from within the constructor to initialize the form.
