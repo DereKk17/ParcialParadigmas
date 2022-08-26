@@ -70,7 +70,7 @@ public class Trabajador extends javax.swing.JFrame {
         this.tfBahul.setText("");
         this.tfMotor.setText("");
         this.tfTprestamo.setText("");
-        this.prePrestamo.setText("");
+        this.tfprePrestamo.setText("");
         
         
          
